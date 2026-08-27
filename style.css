@@ -4,9 +4,10 @@
    ==================================================================== */
 
 :root {
-  --bg: #0e0e12;
-  --ink: #f6f5f2;
-  --muted: #b9b7c3;
+  --bg: #f2ede3;       /* light mode: beige */
+  --ink: #17161c;
+  --muted: #6d6a75;
+  --card: #ffffff;
 
   /* vibrant palette used across default tiles */
   --pink: #ff2e8a;
@@ -20,6 +21,31 @@
   --radius: 18px;
   --font-display: "Helvetica Neue", Arial, sans-serif;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* dark mode: black + dark gray */
+[data-theme="dark"] {
+  --bg: #0e0e12;
+  --ink: #f6f5f2;
+  --muted: #b9b7c3;
+  --card: #1c1b21;
+}
+
+body { transition: background-color .2s ease, color .2s ease; }
+
+/* ---------- theme toggle ---------- */
+.theme-toggle {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid rgba(128,128,128,.3);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 26px;
 }
 
 * { box-sizing: border-box; }
@@ -233,22 +259,6 @@ a { color: inherit; }
   color: var(--muted);
   line-height: 1.6;
 }
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
-}
-.tags li {
-  font-size: 13px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 999px;
-  color: #0e0e12;
-}
-
 .site-footer {
   color: var(--muted);
   font-size: 13px;
