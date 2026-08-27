@@ -143,7 +143,8 @@ a { color: inherit; }
   background: #000;
   display: block;
   text-decoration: none;
-  color: var(--ink);
+  color: #f6f5f2; /* tile is always dark, so its text stays light in both themes */
+  transform: translateZ(0); /* own compositing layer, keeps corner clip stable on hover */
 }
 
 /* two independent diagonal stripe fields, blended together */
@@ -152,6 +153,7 @@ a { color: inherit; }
   content: "";
   position: absolute;
   inset: -30%;
+  border-radius: inherit;
   transition: transform .6s cubic-bezier(.2,.8,.2,1);
 }
 .tile::before {
@@ -259,7 +261,14 @@ a { color: inherit; }
   color: var(--muted);
   line-height: 1.6;
 }
+.copyleft { display: inline-block; transform: scaleX(-1); }
+
 .site-footer {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  padding-top: 40px;
+}
   color: var(--muted);
   font-size: 13px;
   text-align: center;
