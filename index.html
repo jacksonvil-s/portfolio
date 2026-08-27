@@ -5,16 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portfolio — Projects</title>
 <link rel="stylesheet" href="style.css">
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('theme') ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
 </head>
 <body>
 
 <div class="wrap">
 
   <header class="site-header">
-    <a class="logo" href="index.html">your<span>name</span></a>
+    <a class="logo" href="index.html">jackson<span>vil</span></a>
     <nav class="site-nav">
       <a href="index.html" class="active">Projects</a>
       <a href="about.html">About</a>
+      <button class="theme-toggle" onclick="toggleTheme(this)">Toggle theme</button>
     </nav>
   </header>
 
@@ -95,10 +101,18 @@
   </section>
 
   <footer class="site-footer">
-    <p>&copy; 2026 your name. Built with stripes.</p>
+    <p>&copy; 2026 jacksonvil.</p>
   </footer>
 
 </div>
+
+<script>
+  function toggleTheme(btn) {
+    const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  }
+</script>
 
 </body>
 </html>
